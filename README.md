@@ -6,12 +6,12 @@ A learning project to build an e-commerce application using TypeScript.
 
 ### Pending Changes
 
-- [ ] Initial project setup
-  - [ ] Initialize npm/package.json
-  - [ ] Configure TypeScript (tsconfig.json)
-  - [ ] Set up project structure
+- [x] Initial project setup
+  - [x] Initialize npm/package.json
+  - [x] Configure TypeScript (tsconfig.json)
+  - [x] Set up project structure
 
-- [ ] Core Features
+- [p] Core Features
   - [ ] Product catalog
   - [ ] Shopping cart
   - [ ] User authentication
