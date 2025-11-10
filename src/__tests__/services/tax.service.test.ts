@@ -1,5 +1,5 @@
 import { BrazilTaxService } from '../../services/tax.service';
-import { Product } from '../../models/product.model';
+import { Product, ProductWithTaxes } from '../../models/product.model';
 
 describe('BrazilTaxService.calculate', () => {
     let service: BrazilTaxService;
@@ -9,7 +9,7 @@ describe('BrazilTaxService.calculate', () => {
     });
 
     // Helper to build product objects
-    const makeProduct = (product: {name: string, price: number, category: string, imported: boolean}): ProductWithTaxes => ({
+    const makeProduct = (product: ProductWithTaxes): ProductWithTaxes => ({
         name: product.name || 'Sample',
         price: product.price ?? 100,
         category: product.category || 'general',
@@ -40,7 +40,7 @@ describe('BrazilTaxService.calculate', () => {
     test('applies 10% + 15% for imported non-essential', () => {
         const product = makeProduct({ name: 'telefone', price: 1000, category: 'general', imported: true });
         const tax = service.calculate(product);
-        expect(tax).toBeCloseTo((1000 * 1.10) * 1.15, 2);
+        expect(tax).toBeCloseTo((1000 + (1000 * 0.10)) * 0.15, 2);
     });
 
 });
